@@ -1,6 +1,7 @@
 {
-  "name": "nextrace",
+  "name": "nextrace-frontend",
   "private": true,
+  "type": "module",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -9,6 +10,7 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
+    "vite": "^5.0.0",
     "axios": "^1.12.2",
     "express": "^4.18.2",
     "react": "^18.2.0",
@@ -21,6 +23,7 @@
     "@typescript-eslint/eslint-plugin": "^8.44.0",
     "@typescript-eslint/parser": "^8.44.0",
     "@vitejs/plugin-react": "^5.0.3",
+    "@vitejs/plugin-react": "^4.0.0",
     "esbuild": "^0.19.2",
     "eslint": "^9.36.0",
     "eslint-plugin-react": "^7.33.0",
