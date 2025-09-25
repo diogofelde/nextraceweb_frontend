@@ -1,0 +1,13 @@
+import React from 'react';
+
+function Teste() {
+  return (
+    <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
+      <h1> Teste funcionando</h1>
+      <p>Este componente foi gerado automaticamente para validar a renderização.</p>
+    </div>
+  );
+}
+
+export default Teste;
+

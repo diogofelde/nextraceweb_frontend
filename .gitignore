@@ -1,0 +1,20 @@
+﻿# Dependências
+node_modules/
+dist/
+dist-ssr/
+.vite-cache/
+vite_cache/
+
+# Logs
+logs/
+*.log
+
+# Configs locais
+.env
+*.local
+
+# IDEs
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
