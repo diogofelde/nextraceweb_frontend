@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm run build",
-  "installCommand": "npm install --no-optional",
+  "buildCommand": "yarn build",
+  "installCommand": "yarn install --frozen-lockfile",
   "outputDirectory": "dist",
   "cleanUrls": true,
   "rewrites": [
