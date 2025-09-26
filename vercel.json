@@ -1,9 +1,9 @@
 {
-    "installCommand":  "npm ci",
-    "buildCommand":  "npm run build",
-    "outputDirectory":  "dist",
-    "framework":  "vite",
-    "env":  {
-                "VITE_API_URL":  "https://seu-backend-url:3000"
-            }
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "env": {
+    "VITE_API_URL": "https://nextraceweb.vercel.app"
+  }
 }
