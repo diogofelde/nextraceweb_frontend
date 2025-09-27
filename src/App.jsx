@@ -9,9 +9,17 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Redireciona para /dashboard se estiver autenticado, senão para /login */}
         <Route path="/" element={<Navigate to={token ? "/dashboard" : "/login"} />} />
+
+        {/* Página de login */}
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/dashboard" element={token ? <DashboardPage /> : <Navigate to="/login" />} />
+
+        {/* Página protegida */}
+        <Route
+          path="/dashboard"
+          element={token ? <DashboardPage /> : <Navigate to="/login" />}
+        />
       </Routes>
     </BrowserRouter>
   );
