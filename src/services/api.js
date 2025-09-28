@@ -13,18 +13,13 @@ api.interceptors.request.use(config => {
 });
 
 export async function login(username, password) {
-  const res = await api.post('/api/login', { username, password });
+  const res = await api.post('/api/login', { email: username, senha: password });
   return res.data.token;
 }
 
 export async function getMe() {
   const res = await api.get('/api/me');
   return res.data.usuario;
-}
-
-export async function getAdminDashboard() {
-  const res = await api.get('/api/admin/dashboard');
-  return res.data;
 }
 
 export default api;

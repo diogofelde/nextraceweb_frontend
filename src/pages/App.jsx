@@ -1,23 +1,29 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import ProtectedRoute from './components/ProtectedRoute';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/DashboardPage';
 
-export default function App() {
+const App = () => {
+  const token = localStorage.getItem('token');
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="*" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      {/* Redireciona para /dashboard se estiver autenticado, senão para /login */}
+      <Route path="/" element={<Navigate to={token ? "/dashboard" : "/login"} />} />
+
+      {/* Página de login */}
+      <Route path="/login" element={<LoginPage />} />
+
+      {/* Página protegida */}
+      <Route
+        path="/dashboard"
+        element={token ? <DashboardPage /> : <Navigate to="/login" />}
+      />
+
+      {/* Fallback para rotas inexistentes */}
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
-}
+};
+
+export default App;
