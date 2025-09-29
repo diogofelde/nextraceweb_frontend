@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { login } from '../services/api';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -7,9 +6,16 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      const { token, user, acesso } = await login(email, senha);
-      localStorage.setItem('token', token);
-      console.log('✅ Login realizado:', user);
+      const response = await fetch('https://nextraceweb-backend.onrender.com/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: email, password: senha })
+      });
+
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Erro desconhecido');
+
+      localStorage.setItem('token', data.token);
       alert('✅ Login realizado com sucesso!');
       window.location.href = '/dashboard';
     } catch (err) {

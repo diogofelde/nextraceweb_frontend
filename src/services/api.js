@@ -2,7 +2,10 @@ import axios from 'axios';
 
 // Define a baseURL que aponta para o backend no Render
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://nextraceweb-backend.onrender.com/api',
+  baseURL: process.env.REACT_APP_API_BASE_URL, // exemplo: https://nextraceserver.onrender.com/auth
+  headers: {
+    'Content-Type': 'application/json'
+  }
 });
 
 // Intercepta requisições e adiciona o token, se existir
